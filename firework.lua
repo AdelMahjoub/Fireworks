@@ -14,6 +14,7 @@ local function getFirework()
     firework.rocket = getParticle(0, window.height, 0, 0)
     firework.rocketSpeed = 800
     firework.gravity = getVector(0, 0.12)
+    firework.color = {255, love.math.random(255), love.math.random(255)}
 
     function firework.setRandomPosition()
         firework.x = love.math.random(firework.rangeX.min, firework.rangeX.max)
@@ -89,6 +90,7 @@ local function getFirework()
     end
 
     function firework.draw()
+        love.graphics.setColor(firework.color)
         
         if not firework.rocket.hasExploded then
             love.graphics.circle("fill", firework.rocket.position.getX(), firework.rocket.position.getY(), 5)
@@ -99,6 +101,7 @@ local function getFirework()
             if particle.isVisible then
                 
                 love.graphics.circle("fill", particle.position.getX(), particle.position.getY(), 1)
+                
             end
         end
     end

@@ -50,12 +50,12 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.setColor(255, 255, 255)
     love.graphics.print(("FPS: %d\tROCKETS: %d\tSPARKS: %d"):format(love.timer.getFPS(), rocketsOnScreen, sparksOnScreen), 10, window.height - 20)
     if not firstFrameSkipped then
         firstFrameSkipped = true
         return 
     end
-    love.graphics.setColor(250, love.math.random(255), love.math.random(255))
     for i, firework in ipairs(fireworks) do
         firework.draw()
     end
