@@ -14,7 +14,7 @@ local rocketsOnScreen = 0
 local sparksOnScreen = 0
 
 function love.load()
-   
+    love.graphics.setBlendMode("add")
 end
 
 function love.update(dt)

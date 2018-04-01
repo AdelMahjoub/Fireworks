@@ -91,17 +91,16 @@ local function getFirework()
 
     function firework.draw()
         love.graphics.setColor(firework.color)
-        
         if not firework.rocket.hasExploded then
-            love.graphics.circle("fill", firework.rocket.position.getX(), firework.rocket.position.getY(), 5)
+            --love.graphics.circle("fill", firework.rocket.position.getX(), firework.rocket.position.getY(), 5)
+            love.graphics.rectangle("fill", firework.rocket.position.getX(), firework.rocket.position.getY(), 5, 10)
             return
         end
-        
+                
         for i, particle in ipairs(firework.particles) do
             if particle.isVisible then
-                
-                love.graphics.circle("fill", particle.position.getX(), particle.position.getY(), 1)
-                
+                --love.graphics.circle("fill", particle.position.getX(), particle.position.getY(), 1)
+                love.graphics.rectangle("fill",  particle.position.getX(), particle.position.getY(), 2, 2)
             end
         end
     end
