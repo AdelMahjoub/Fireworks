@@ -41,10 +41,12 @@ function love.update(dt)
         if (firework.rocket.position.getY() < window.height and firework.rocket.position.getY() > firework.y) then
             rocketsOnScreen = rocketsOnScreen + 1
         end
-        for i, particle in ipairs(firework.particles) do
-            if particle.isVisible then
-                sparksOnScreen = sparksOnScreen + 1
-            end 
+        if firework.rocket.hasExploded then
+            for i, particle in ipairs(firework.particles) do
+                if particle.isVisible then
+                    sparksOnScreen = sparksOnScreen + 1
+                end 
+            end
         end
     end
 end
